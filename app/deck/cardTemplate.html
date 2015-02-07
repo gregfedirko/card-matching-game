@@ -1,0 +1,5 @@
+<!-- Template for Card Directive -->
+<div ng-switch on="show"> 
+  <img ng-switch-when="false" ng-src="img/cards/back.png"></img> 
+  <img ng-switch-when="true" ng-src="img/cards/{{value}}_of_{{suit}}.png"></img>
+</div>

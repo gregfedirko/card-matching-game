@@ -1,0 +1,23 @@
+.card {
+  display: inline-block;
+  width: 40px;
+  margin: 5px;
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+.card-stacked {
+  margin-right: -35px;
+}
+.invisible {
+  visibility: hidden;
+}
+
+.chosen-cards {
+  height: 200px;
+}
+
+.start {
+  display: inline-block;
+}

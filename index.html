@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+  <div ng-controller="GameController" class="container">
+    <!-- Header -->
+    <div class="page-header">
+      <button class="btn btn-success pull-right start" ng-click="start()">Start Game</button>
+      <h1>Card Matching Game</h1> 
+    </div>
+
+    <!-- Game Area -->
+
+    <!-- Left Column with player hands -->
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+
+        <!-- Player Hand -->
+        <div class="player-hand chosen-cards">
+          <h3>Player: {{playerHand.length}}</h3><hr>
+          <div class="card card-stacked" ng-repeat="cardIndex in playerHand" >
+            <mg-Card suit="deck[cardIndex].suit" value="deck[cardIndex].value" show="true"></mg-Card>
+          </div>
+        </div>
+
+        <!-- Computer Hand -->
+        <div class="computer-hand chosen-cards">
+          <h3>Computer: {{computerHand.length}}</h3><hr>
+          <div class="card card-stacked" ng-repeat="cardIndex in computerHand" >
+            <mg-Card suit="deck[cardIndex].suit" value="deck[cardIndex].value" show="true"></mg-Card>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deck Area -->
+      <div class="col-md-8 col-sm-8">
+        <div class="deck">
+          <div class="card" ng-repeat="card in deck" ng-click="selectCard($index)">
+            <mg-Card suit="card.suit" value="card.value" show="card.show" ng-class="{invisible: !card.inGame}">
+            </mg-Card>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Vendor -->
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+  <!-- App -->
+  <script type="text/javascript" src="app/app.module.js"></script>
+  <!-- Controllers -->
+  <script type="text/javascript" src="app/game/GameController.js"></script>
+
+  <!-- Services -->
+  <script type="text/javascript" src="app/game/game.js"></script>
+  <script type="text/javascript" src="app/deck/deck.js"></script>
+
+  <!-- Directives -->
+  <script type="text/javascript" src="app/deck/cardDirective.js"></script>
+
+</body>
+</html>
